@@ -1,0 +1,169 @@
+<div id="page-title">
+	<h1 class="page-header text-overflow">Business</h1>
+	<!--Searchbox-->
+	<div class="searchbox">
+		<div class="input-group custom-search-form">
+			<input type="text" class="form-control" placeholder="Search..">
+			<span class="input-group-btn">
+				<button class="text-muted" type="button"><i class="fa fa-search"></i></button>
+			</span>
+		</div>
+	</div>
+</div>
+<ol class="breadcrumb">
+	<li><a href="#">Home</a></li>
+	<li><a href="/#/client/">Client</a></li>
+	<li class="active">Businesses</li>
+</ol>
+<!-- Content -->
+<div id="page-content" class="buisness">
+	<div class="row">
+		<div class="col-lg-12">
+		<!--Profile Heading-->
+			<div class="panel">
+				<div class="panel-bg-cover">
+					<img class="img-responsive" src="http://lorempixel.com/980/300/" alt="Image">
+				</div>
+				<div class="panel-media">
+					<img src="http://lorempixel.com/300/300/" class="panel-media-img img-rounded img-border-light" alt="Profile Picture">
+					<i class="fa fa-camera"></i>
+					<div class="row">
+						<div class="col-lg-10">
+							<h3 class="panel-media-heading">
+								<span editable-text="user.title" e-form="textBtnForm">
+									{{ user.title || 'empty' }}
+								</span>
+								<i class="fa fa-pencil" ng-click="textBtnForm.$show()" ng-hide="textBtnForm.$visible"></i>
+							</h3>
+							<div class="btn-group">
+								<label class="btn btn-primary" ng-model="radioModel" ng-click="product = false; service = false; team = false; about = true" ng-class="{ 'active' : about == true }">About</label>
+								<label class="btn btn-primary" ng-model="radioModel" ng-click="product = true; service = false; team = false; about = false" ng-class="{ 'active' : product == true }">Product</label>
+								<label class="btn btn-primary" ng-model="radioModel" ng-click="product = false; service = true; team = false; about = false" ng-class="{ 'active' : service == true }">Services</label>
+								<label class="btn btn-primary" ng-model="radioModel" ng-click="product = false; service = false; team = true; about = false" ng-class="{ 'active' : team == true }">Team</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<uib-tabset>
+			<uib-tab active="about">
+				<div class="col-lg-6">
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title">Profile</h3>
+						</div>
+<!-- 						<form class="form-horizontal"> -->
+							<div class="panel-body">
+								<div class="row form-group">
+									<label class="col-sm-3 control-label">Description</label>
+									<div class="col-sm-9">
+										<div class="item-wrapper textarea">
+											<a href="#" editable-textarea="buisness.description" e-rows="7" e-cols="40">{{ buisness.description || 'empty' }}</a>
+										</div>
+									</div>
+								</div>
+								<div class="row form-group">
+									<label class="col-sm-3 control-label">Address</label>
+									<div class="col-sm-9">
+										<div class="item-wrapper textarea">
+											<a href="#" editable-textarea="user.name" e-rows="7" e-cols="40">{{ user.name || 'empty' }}</a>
+										</div>
+									</div>
+								</div>
+								<div class="row form-group">
+									<label class="col-sm-3 control-label">Country</label>
+									<div class="col-sm-9">
+										<div class="item-wrapper">
+											<a href="#" editable-select="user.status" e-ng-options="s.value as s.text for s in statuses">
+												{{ showStatus() }}
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="row form-group">
+									<label class="col-sm-3 control-label">City</label>
+									<div class="col-sm-9">
+										<div class="item-wrapper">
+											<a href="#" editable-select="user.status" e-ng-options="s.value as s.text for s in statuses">
+												{{ showStatus() }}
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="row form-group">
+									<label class="col-sm-3 control-label">City</label>
+									<div class="col-sm-9">
+										<div class="item-wrapper">
+											<a href="#" editable-text="user.city">{{ user.city || 'empty' }}</a>
+										</div>
+									</div>
+								</div>
+								<div class="row form-group">
+									<label class="col-sm-3 control-label">Zip</label>
+									<div class="col-sm-9">
+										<div class="item-wrapper">
+											<a href="#" editable-text="user.zip">{{ user.zip || 'empty' }}</a>
+										</div>
+									</div>
+								</div>																												
+								<div class="row form-group">
+									<label class="col-sm-3 control-label">Website</label>
+									<div class="col-sm-9">
+										<div class="item-wrapper">
+											<a href="#" editable-text="user.web">{{ user.web || 'empty' }}</a>
+										</div>
+									</div>
+								</div>
+								<div class="row form-group">
+									<label class="col-sm-3 control-label">Personal Url</label>
+									<div class="col-sm-9">
+										<div class="item-wrapper">
+											<a href="#" editable-text="user.url">{{ user.url || 'empty' }}</a>
+										</div>
+									</div>
+								</div>														
+								<div class="form-group">
+									<div class="col-sm-offset-3 col-sm-9">
+										<label class="form-checkbox form-normal form-primary form-text">
+											<input type="checkbox"> Include in search
+										</label>
+									</div>
+								</div>
+							</div>
+<!-- 						</form> -->
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title">Location</h3>
+						</div>				
+						<div class="panel-body">
+							<ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>						
+						</div>
+					</div>
+				</div>
+			</uib-tab>
+			<uib-tab active="product">
+				<div class="col-lg-12">
+					<div class="panel">
+						<div class="panel-heading">
+							<h3 class="panel-title">Product</h3>
+						</div>
+						<form class="form-horizontal">
+							<div class="panel-body">
+								<div class="form-group">
+									<label class="col-sm-3 control-label">Description</label>
+									<div class="col-sm-9">
+										<textarea placeholder="Description" rows="4" class="form-control"></textarea>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</uib-tab>			
+		</uib-tabset>		
+	</div>
+</div>
